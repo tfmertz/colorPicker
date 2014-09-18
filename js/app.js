@@ -25,7 +25,7 @@ $('.addColor').click(function(){
   var listItem = '<li ' + 'style="background-color:' + background + ';"></li>';
   //append it to the colorList
   $('#colorList').append(listItem);
-  console.log(background);
+  //console.log(background);
 });
 
 //if the user clicks on a color in the list

@@ -1,0 +1,130 @@
+/****************************************
+* GENERAL
+****************************************/
+
+
+
+
+/****************************************
+* HEADING
+****************************************/
+
+header {
+  margin: 0 0 15px 0;
+  padding: 5px 0 10px 0;
+  background-color: #555;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+h2 {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+/****************************************
+* PAGE Color Picker
+****************************************/
+
+#wrapper{
+  max-width: 600px;
+  margin: 0 auto 0;
+  padding: 0 5%;
+}
+
+div.colorSliders {
+  margin: 0 0 30px 0;
+}
+
+span.colorPreview {
+  float: left;
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  margin: 0 0 1em 0;
+  border-radius: 5px;
+}
+
+.colorSliders label {
+  display: inline-block;
+  width: 15%;
+}
+
+.colorSliders input {
+  display: inline-block;
+  width: 80%;
+  float: right;
+}
+
+div.colorResults, div.colorPalette {
+  border-top: 1px solid #999999;
+  padding: 10px 0 0;
+}
+
+.colorResults label {
+  display: inline-block;
+  width: 15%;
+}
+  
+
+#addHash {
+  width: 32px;
+  height: 32px;
+}
+
+.check {
+  margin: 0 15px 0 0;
+}
+
+.check + label {
+  display: inline;
+  position: relative;
+  bottom: 9px;
+}
+
+button {
+  margin: 10px 0 0;
+}
+
+/****************************************
+* COLOR LIST
+****************************************/
+#colorList {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+#colorList li {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 0 0 10px 5px;
+  border-radius: 5px;
+}
+
+#colorList li.selected {
+  width: 58px;
+  height: 58px;
+  border: 5px dashed black;
+}
+
+
+/****************************************
+* FOOTER
+****************************************/
+
+footer {
+  margin: 30px 0 0;
+  text-align: center;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+}

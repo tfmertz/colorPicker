@@ -28,6 +28,12 @@ $('.addColor').click(function(){
   //console.log(background);
 });
 
+//if the user hits the remove color button
+$('.removeColor').click(function(){
+  //grab the color that is currently selected and remove it
+  $(".selected").remove();
+});
+
 //if the user clicks on a color in the list
 $('#colorList').on("click", 'li', function() {
   //remove the selected from it's siblings

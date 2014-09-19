@@ -32,7 +32,7 @@ $('.addColor').click(function(){
 $('.removeColor').click(function(){
   //grab the color that is currently selected and remove it
   $(".selected").remove();
-});
+}); //end removeColor click
 
 //if the user clicks on a color in the list
 $('#colorList').on("click", 'li', function() {

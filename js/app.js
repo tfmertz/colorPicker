@@ -12,20 +12,27 @@ $colorSliders.mousemove(updateColor);
 
 //if recall button is pushed
 $('.recallColor').click(function(){
-  //grab the rgb & hex value out of the selected color's style
-  var rgbValue = $(".selected").css('background-color');
-  var hexValue = $(".selected span").html();
-  console.log(rgbValue);
-  console.log(hexValue);
-
-  //calculate the hex value
-
-
-  $('input[type="range"]').each(function(){
-    $(this).val(0);
-    updateColor();
+  //grab the hex value out of the selected color's style
+  //note: .css() returns rgb(x,x,x) and isn't necessarily consistent across browsers
+  var hexValue = $(".selected").attr('style').substr(17,7);
+  //create and array to store the rgb values
+  var rgbArray = [];
+  //store each span value in the array
+  $(".selected span").each(function() {
+    rgbArray.push($(this).html());
   });
-}); //end resetColor click
+  
+  //put the rgb and hex values back into the text inputs
+  $colorInHex.html(hexValue);
+  $colorInRGB.html('rgb(' + rgbArray[0] + ', ' + rgbArray[1] + ', ' + rgbArray[2] + ')');
+
+  //go through the sliders and put each color back in
+  $('input[type="range"]').each(function(index){
+    $(this).val(rgbArray[index]);
+  });
+
+  updateColor();
+}); //end recallColor click
 
 //if the user hits the add color button
 $('.addColor').click(function(){
@@ -37,7 +44,6 @@ $('.addColor').click(function(){
   listItem += '<span>' + rgbArray[0] + "</span><span>" + rgbArray[1] + "</span><span>" + rgbArray[2] + '</span></li>';
   //append it to the colorList
   $('#colorList').append(listItem);
-  //console.log(background);
 });
 
 //if the user hits the remove color button

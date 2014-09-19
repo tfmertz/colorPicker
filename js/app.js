@@ -46,6 +46,10 @@ $('.recallColor').click(function(){
 $('.addColor').click(function(){
   //grab the current color
   var background = $colorInHex.val();
+  //check if we have # on or off
+  if(background.length === 6){
+    background = "#" + background;
+  }
   var rgbArray = getRGB();
   //create a li with rgb as background color and hex on top
   var listItem = '<li ' + 'style="background-color:' + background + ';">';

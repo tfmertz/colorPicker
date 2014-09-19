@@ -30,7 +30,7 @@ $('.recallColor').click(function(){
 //if the user hits the add color button
 $('.addColor').click(function(){
   //grab the current color
-  var background = $colorInRGB.val();
+  var background = $colorInHex.val();
   //create a li with rgb as background color and hex on top
   var listItem = '<li ' + 'style="background-color:' + background + ';">';
   listItem += '<span>' + $colorInHex.val() + '</span></li>';
@@ -84,17 +84,25 @@ function dec2hex(num) {
   return (num+0x10000).toString(16).substr(-2).toUpperCase();
 }
 
-//Update color picker to reflect any changes to the input ranges
-function updateColor() {
-  
+//returns the red, green, and blue values of the sliders in an array
+function getRGB() {
   //store the values of the input changed into numbers
   var r = Number.parseInt($('#red').val());
   var g = Number.parseInt($('#green').val());
   var b = Number.parseInt($('#blue').val());
+  //throw those numbers into an array and return it
+  var rgb = [r, g, b];
+  return rgb;
+}
+
+//Update color picker to reflect any changes to the input ranges
+function updateColor() {
+  
+  var rgbArray = getRGB();
   
   //store the hex value
-  var hexColor = dec2hex(r) + dec2hex(g) + dec2hex(b);
-  
+  var hexColor = dec2hex(rgbArray[0]) + dec2hex(rgbArray[1]) + dec2hex(rgbArray[2]);
+  var rgbValue = "rgb(" + rgbArray[0] + ", " + rgbArray[1] + ", " + rgbArray[2] + ")";
   
   //update the Hex and RBG text inputs to be the value of the range input
   
@@ -104,10 +112,13 @@ function updateColor() {
   } else {
     $colorInHex.val(hexColor);
   }
-  $colorInRGB.val("rgb(" + r + ", " + g + ", " + b + ")");
+
+
+
+  $colorInRGB.val(rgbValue);
   
   //change the background color of the span
-  $colorPreview.css("background-color", "rgb(" + r + "," + g + "," + b + ")");
+  $colorPreview.css("background-color", rgbValue);
 }
 
 updateColor();

@@ -31,9 +31,10 @@ $('.recallColor').click(function(){
 $('.addColor').click(function(){
   //grab the current color
   var background = $colorInHex.val();
+  var rgbArray = getRGB();
   //create a li with rgb as background color and hex on top
   var listItem = '<li ' + 'style="background-color:' + background + ';">';
-  listItem += '<span>' + $colorInHex.val() + '</span></li>';
+  listItem += '<span>' + rgbArray[0] + "</span><span>" + rgbArray[1] + "</span><span>" + rgbArray[2] + '</span></li>';
   //append it to the colorList
   $('#colorList').append(listItem);
   //console.log(background);
@@ -100,21 +101,18 @@ function updateColor() {
   
   var rgbArray = getRGB();
   
-  //store the hex value
+  //store the hex & rgb values
   var hexColor = dec2hex(rgbArray[0]) + dec2hex(rgbArray[1]) + dec2hex(rgbArray[2]);
   var rgbValue = "rgb(" + rgbArray[0] + ", " + rgbArray[1] + ", " + rgbArray[2] + ")";
   
-  //update the Hex and RBG text inputs to be the value of the range input
-  
+  //update the Hex text input
   //if the add # is checked add it into the inputs
   if($addHash.prop("checked") === true) {
     $colorInHex.val("#" + hexColor);
   } else {
     $colorInHex.val(hexColor);
   }
-
-
-
+  //update the rgb text input
   $colorInRGB.val(rgbValue);
   
   //change the background color of the span

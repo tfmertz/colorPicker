@@ -10,6 +10,14 @@ var $addHash = $('#addHash');
 //BUG: Doesn't work on touchscreens
 $colorSliders.mousemove(updateColor);
 
+//set all the color sliders back to their original values
+$('.clearValues').click(function(){
+  $colorSliders.each(function(){
+    $(this).val(0);
+  });
+  updateColor();
+});
+
 //if recall button is pushed
 $('.recallColor').click(function(){
   //grab the hex value out of the selected color's style

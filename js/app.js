@@ -7,10 +7,20 @@ var $colorInRGB = $('#colorInRGB');
 var $addHash = $('#addHash');
 
 //On range change event
+//BUG: Doesn't work on touchscreens
 $colorSliders.mousemove(updateColor);
 
-//if reset button is pushed
-$('.resetColor').click(function(){
+//if recall button is pushed
+$('.recallColor').click(function(){
+  //grab the rgb & hex value out of the selected color's style
+  var rgbValue = $(".selected").css('background-color');
+  var hexValue = $(".selected span").html();
+  console.log(rgbValue);
+  console.log(hexValue);
+
+  //calculate the hex value
+
+
   $('input[type="range"]').each(function(){
     $(this).val(0);
     updateColor();
@@ -21,8 +31,9 @@ $('.resetColor').click(function(){
 $('.addColor').click(function(){
   //grab the current color
   var background = $colorInRGB.val();
-  //create a li
-  var listItem = '<li ' + 'style="background-color:' + background + ';"></li>';
+  //create a li with rgb as background color and hex on top
+  var listItem = '<li ' + 'style="background-color:' + background + ';">';
+  listItem += '<span>' + $colorInHex.val() + '</span></li>';
   //append it to the colorList
   $('#colorList').append(listItem);
   //console.log(background);

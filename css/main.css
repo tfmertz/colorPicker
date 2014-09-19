@@ -114,6 +114,14 @@ button {
   border: 5px dashed black;
 }
 
+#colorList li > span {
+  display: inline-block;
+  font-size: .6em;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
 
 /****************************************
 * FOOTER

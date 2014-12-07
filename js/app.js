@@ -9,6 +9,7 @@ var $addHash = $('#addHash');
 //On range change event
 //BUG: Doesn't work on touchscreens
 $colorSliders.mousemove(updateColor);
+$colorSliders.onchange(updateColor);
 
 //set all the color sliders back to their original values
 $('.clearValues').click(function(){
@@ -51,7 +52,7 @@ $('.addColor').click(function(){
     background = "#" + background;
   }
   var rgbArray = getRGB();
-  //create a li with rgb as background color and hex on top
+  //create a li with hex as background color and rgb on top
   var listItem = '<li ' + 'style="background-color:' + background + ';">';
   listItem += '<span>' + rgbArray[0] + "</span><span>" + rgbArray[1] + "</span><span>" + rgbArray[2] + '</span></li>';
   //append it to the colorList
